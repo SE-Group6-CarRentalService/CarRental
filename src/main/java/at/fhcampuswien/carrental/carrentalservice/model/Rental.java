@@ -1,26 +1,30 @@
-package at.fhcampuswien.carrental.carrentalservice;
+package at.fhcampuswien.carrental.carrentalservice.model;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Rental {
-    private int id;
+
+    private Long id;
     private Car car;
+    private User user;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Rental(int id, Car car, LocalDate startDate, LocalDate endDate) {
-        this.id = id;
+    public Rental() {
+    }
+
+    public Rental(Car car, User user, LocalDate startDate, LocalDate endDate) {
         this.car = car;
+        this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -30,6 +34,14 @@ public class Rental {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDate getStartDate() {
@@ -48,8 +60,14 @@ public class Rental {
         this.endDate = endDate;
     }
 
-    public double calculateRentalCost() {
-        long days = ChronoUnit.DAYS.between(startDate, endDate);
-        return days * car.getPricePerDay();
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "id=" + id +
+                ", car=" + car +
+                ", user=" + user +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
     }
 }
