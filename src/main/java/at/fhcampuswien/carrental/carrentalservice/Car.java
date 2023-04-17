@@ -6,13 +6,15 @@ public class Car {
     private String model;
     private int year;
     private boolean available;
+    private double pricePerDay;
 
-    public Car(int id, String make, String model, int year, boolean available) {
+    public Car(int id, String make, String model, int year, boolean available, double pricePerDay) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.year = year;
         this.available = available;
+        this.pricePerDay = pricePerDay;
     }
 
     public int getId() {
@@ -54,4 +56,13 @@ public class Car {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
+    public double getPricePerDay() {
+        return pricePerDay;
+    }
+
+    public void setPricePerDay(double pricePerDay) {
+        this.pricePerDay = pricePerDay;
+    }
 }
+

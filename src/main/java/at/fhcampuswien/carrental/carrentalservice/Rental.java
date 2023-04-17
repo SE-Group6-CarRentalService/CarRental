@@ -1,6 +1,7 @@
 package at.fhcampuswien.carrental.carrentalservice;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Rental {
     private int id;
@@ -45,5 +46,10 @@ public class Rental {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public double calculateRentalCost() {
+        long days = ChronoUnit.DAYS.between(startDate, endDate);
+        return days * car.getPricePerDay();
     }
 }
